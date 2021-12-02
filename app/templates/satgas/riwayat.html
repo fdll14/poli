@@ -1,0 +1,85 @@
+{% include "satgas/layout/top.html" %} {% block content%} {% endblock %}
+
+<div class="clearfix"></div>
+<div class="row" >
+    <div class="col-md-12 col-sm-12 ">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Riwayat</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <form action="/satgas/riwayat/all" method="post">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group row">
+                                    <label for="kamera">Kamera</label>
+                                    <select class="form-control select2" name="kamera" data-placeholder="Choose one.." id="kelurahan">
+                                        <option value=""></option>
+                                        {% for d in data.kamera %}
+                                            <option value="{{d[0]}}">{{d[1]}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-3">
+                                <div class="form-group row">
+                                    <label class="col-form-label" for="tgl_awal">Tgl Awal</label>
+                                    <input type="date" id="tgl_awal" class="form-control" name="tgl_awal">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group row">
+                                    <label class="col-form-label" for="tgl_akhir">Tgl Akhir</label>
+                                    <input type="date" id="tgl_akhir" class="form-control" name="tgl_akhir">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group row">
+                                <label class="col-form-label" for="" style="opacity: 0;">cari</label>
+                                <input type="submit" class="form-control btn-info" value="Cari" name="submit">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <hr>
+            <table id="tableku" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Lokasi</th>
+                        <th>Waktu</th>
+                        <th>Jml Pelanggaran</th>
+                        <th>Capture</th>
+                        <th>Kamera</th>
+                    </tr>
+                </thead>
+                    {% for d in data.riwayat %}
+                    <tr>
+                        <td>{{loop.index}}</td>
+                        <td>{{ d[8] }}</td>
+                        <td>{{ d[4] }}</td>
+                        <td>{{ d[2] }}</td>
+                        <td>{{ d[3] }}</td>
+                        <td>{{ d[6] }}</td>
+                    </tr>
+                    {% endfor %}
+                <tbody>
+                
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include "satgas/layout/bottom.html" %} 
