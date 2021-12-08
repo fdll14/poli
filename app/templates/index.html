@@ -332,46 +332,20 @@
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
-
+            {% for d in data.testimoni %}
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="static/frontend//img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Fredy Nur Apriyanto</h3>
-                <h4>Lulusan tahun 2020</h4>
+                <img src="/static/upload/testimoni/{{d[4]}}" class="testimonial-img" alt="">
+                <h3>{{d[1]}}</h3>
+                <h4>Lulusan tahun {{d[2]}}</h4>
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Alhamdulillah, sejak semester 7 sebelum lulus kuliah saya sudah diterima bekerja sebagai Staf IT (Programmer) RSUI Harapan Anda. saya sangat bangga bisa berkuliah di Program Studi D IV Teknik Informatika Politeknik Harapan Bersama.
+                  {{d[3]}}
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
             </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="static/frontend//img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Mohammad Wijaya</h3>
-                <h4>Lulusan tahun 2021</h4>
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Saya sangat bersyukur di masa pandemi seperti saat ini bisa diterima bekerja di RSUD Kardinah. Gaji yang saya dapatkan bisa saya gunakan untuk menopang keperluan riset dan membiayai studi kuliah. Terimakasih tak terhingga untuk Prodi DIV Teknik Informatika, tempat saya berkuliah.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="static/frontend//img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Ali Budi Purnomo</h3>
-                <h4>Lulusan tahun 2021</h4>
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Saya sangat senang bisa kuliah di DIV Teknik Informatika Politeknik Harapan Bersama. Kurikulumnya didesain untuk mampu mengikuti tren kebutuhan dunia industri. Buktinya saya bisa diterima bekerja diperusahaan Hops Media sebelum saya lulus kuliah. Terima Kasih Bapak dan Ibu Dosen.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
+            {% endfor %}
           </div>
           <div class="swiper-pagination"></div>
         </div>
