@@ -75,3 +75,9 @@ bottom:0;
 right:0;
 width: 300px;
 }
+
+@media (max-width: 991px) {
+    #chatbox{
+        width: 500px;
+    }
+  }

@@ -5,7 +5,7 @@
     <div class="col-md-8 col-sm-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Dataset Bot</h2>
+                <h2>Answer Error</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -23,11 +23,11 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Pertanyaan</th>
-                                        <th>Jawaban</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                    {% for d in data.testimoni %}
+                                    {% for d in data %}
                                     <tr>
                                         <td>{{loop.index}}</td>
                                         <td>{{ d[1] }}</td>
@@ -37,7 +37,7 @@
                                                 <button type="button" class="btn btn-warning btn_ubah" data-toggle="modal" value="{{ d[0] }}" title="Edit" onclick="getWisata(this)">
                                                     <i class="fa fa-fw fa-pencil"></i>
                                                 </button>
-                                                <a href="/admin/dataset/delete/{{d[0]}}" data-toggle="modal" data-target="#my-modal" class="btn btn-sm btn-icon btn-rounded btn-danger delete_btn_member" title="Delete">
+                                                <a href="/admin/answer-error/delete/{{d[0]}}" data-toggle="modal" data-target="#my-modal" class="btn btn-sm btn-icon btn-rounded btn-danger delete_btn_member" title="Delete">
                                                     <i class="fa fa-fw fa-times"></i>
                                                 </a>
                                             </div>
@@ -67,21 +67,21 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content"> 
-                <form id="myForm" data-parsley-validate action="/admin/testimoni/all" method="POST" enctype="multipart/form-data">
+                <form id="myForm" data-parsley-validate action="/admin/answer-error/all" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="id" id="id_hidden">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group row">
-                                <label class="col-form-label" for="nama">Pertanyaan</label>
-                                <input type="text" id="nama" class="form-control" name="nama">
+                                <label class="col-form-label" for="pertanyaan">Pertanyaan</label>
+                                <input type="text" id="pertanyaan" class="form-control" name="pertanyaan">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group row">
-                                <label class="col-form-label" for="jawaban">Jawaban</label>
-                                <input type="text" id="jawaban" class="form-control" name="jawaban">
+                                <label class="col-form-label" for="status">Status</label>
+                                <input type="text" id="status" class="form-control" name="status" placeholder="ex: sudah diperbaiki">
                             </div>
-                        </div>
+                        </div> 
                     </div>
         
                     <br />

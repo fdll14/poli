@@ -5,6 +5,7 @@ from uuid import uuid4
 from werkzeug.utils import secure_filename
 from app.models.user import User
 from app.models.testimoni import Testimoni
+from app.models.answererror import Answererror
 
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
@@ -84,3 +85,37 @@ def admin_testimoni_update():
     testimoni.update(inputan['id'], inputan['nama'], inputan['lulusan'], inputan['pesan'], filename)
     flash('Berhasil update data')
     return redirect(url_for('admin_testimoni', idx='all'))
+
+
+#answer error
+@app.route('/admin/answer-error/<idx>', methods = ['GET', 'POST'])
+def answer_error(idx='all'):
+    if request.method == "POST":
+        answererror = Answererror()
+        inputan = request.form
+        answererror.store(inputan['pertanyaan'], inputan['status'])
+        flash('Berhasil tambah data')
+        return redirect(url_for('answer_error', idx='all'))
+    elif request.method == "GET" :
+        if idx == 'all':
+            answererror = Answererror()
+            data = answererror.get()
+            return render_template('admin/answer_error.html', data=data)
+        else:
+            answererror = Answererror()
+            data = answererror.getOne(idx)
+            return jsonify(result=data)
+            
+@app.route('/admin/answer-error/delete/<idx>', methods = ['GET'])
+def answer_error_delete(idx=None):
+    answererror = Answererror()
+    data = answererror.destroy(idx)
+    flash('Berhasil hapus data')
+    return redirect(url_for('answer_error', idx='all'))
+@app.route('/admin/answer-error/update', methods = ['POST'])
+def answer_error_update():
+    answererror = Answererror()
+    inputan = request.form
+    answererror.update(inputan['id'], inputan['pertanyaan'], inputan['status'])
+    flash('Berhasil update data')
+    return redirect(url_for('answer_error', idx='all'))

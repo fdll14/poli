@@ -3,6 +3,7 @@ import os
 from app import app
 import re
 import random
+from app.models.answererror import Answererror
 
 R_ABOUT = "Poli adalah asisten virtual yang akan membantu kamu untuk menjawab semua hal yang berhubungan dengan Prodi Teknik Informatika"
 R_D4 = "Jenjang Sarjana Terapan memiliki lama waktu perkuliahan yang sama dengan jenjang sarjana yaitu empat tahun atau selama delapan semester"
@@ -132,5 +133,18 @@ def bot():
 
 @app.route("/get")
 def bot_answer():
-    userText = request.args.get('msg')
     return get_response(userText)
+# def bot_answer():
+#     userText = request.args.get('msg')
+#     if get_response(userText) == "Maaf poli tidak mengerti tentang pertanyaan kamu.":
+#         answererror = Answererror()
+#         inputan = request.form
+#         answererror.store(inputan['msg'], inputan['status'])
+#         return get_response(userText)
+#     elif get_response(userText) == "Bisa tanyakan pertanyaan yang lain ? Poli tidak mengerti":
+#         answererror = Answererror()
+#         inputan = request.form
+#         answererror.store(inputan['msg'], inputan['status'])
+#         return get_response(userText)
+#     else:
+#         return get_response(userText)
