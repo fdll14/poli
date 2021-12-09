@@ -6,6 +6,7 @@ from werkzeug.utils import secure_filename
 from app.models.user import User
 from app.models.testimoni import Testimoni
 from app.models.answererror import Answererror
+from app.models.dataset import Dataset
 
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
@@ -119,3 +120,36 @@ def answer_error_update():
     answererror.update(inputan['id'], inputan['pertanyaan'], inputan['status'])
     flash('Berhasil update data')
     return redirect(url_for('answer_error', idx='all'))
+
+#dataset
+@app.route('/admin/dataset/<idx>', methods = ['GET', 'POST'])
+def dataset(idx='all'):
+    if request.method == "POST":
+        dataset = Dataset()
+        inputan = request.form
+        dataset.store(inputan['pertanyaan'], inputan['jawaban'])
+        flash('Berhasil tambah data')
+        return redirect(url_for('dataset', idx='all'))
+    elif request.method == "GET" :
+        if idx == 'all':
+            dataset = Dataset()
+            data = dataset.get()
+            return render_template('admin/dataset.html', data=data)
+        else:
+            dataset = Dataset()
+            data = dataset.getOne(idx)
+            return jsonify(result=data)
+            
+@app.route('/admin/dataset/delete/<idx>', methods = ['GET'])
+def dataset_delete(idx=None):
+    dataset = Dataset()
+    data = dataset.destroy(idx)
+    flash('Berhasil hapus data')
+    return redirect(url_for('dataset', idx='all'))
+@app.route('/admin/answer-error/update', methods = ['POST'])
+def dataset_update():
+    dataset = Dataset()
+    inputan = request.form
+    dataset.update(inputan['id'], inputan['pertanyaan'], inputan['jawaban'])
+    flash('Berhasil update data')
+    return redirect(url_for('dataset', idx='all'))
