@@ -133,7 +133,9 @@ def bot():
 
 @app.route("/get")
 def bot_answer():
+    userText = request.args.get('msg')
     return get_response(userText)
+
 # def bot_answer():
 #     userText = request.args.get('msg')
 #     if get_response(userText) == "Maaf poli tidak mengerti tentang pertanyaan kamu.":

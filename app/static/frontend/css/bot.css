@@ -76,7 +76,7 @@ right:0;
 width: 300px;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 412px) {
     #chatbot {
       width: 80%;
     }
