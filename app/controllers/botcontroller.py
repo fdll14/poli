@@ -1,11 +1,12 @@
 from flask import render_template, redirect, url_for, request, flash, session
+import os
 from app import app
 import re
-import os
 import random
 
 R_ABOUT = "Poli adalah asisten virtual yang akan membantu kamu untuk menjawab semua hal yang berhubungan dengan Prodi Teknik Informatika"
-R_D4 = "Jenjang diploma 4 memiliki lama waktu perkuliahan yang sama dengan jenjang sarjana yaitu empat tahun atau selama delapan semester"
+R_D4 = "Jenjang Sarjana Terapan memiliki lama waktu perkuliahan yang sama dengan jenjang sarjana yaitu empat tahun atau selama delapan semester"
+R_visi = "Menjadi program studi unggul dalam bidang teknik informatika yang mampu beradaptasi terhadap perkembangan teknologi informasi, berjiwa kewirausahaan, berbasis kearifan lokal dan berdaya saing global pada tahun 2035"
 def unknown():
     response = ["Maaf poli tidak mengerti tentang pertanyaan kamu.",
                 "Bisa tanyakan pertanyaan yang lain ? Poli tidak mengerti"][
@@ -44,7 +45,6 @@ def check_all_messages(message):
     def response(bot_response, list_of_words, single_response=False, required_words=[]):
         nonlocal highest_prob_list
         highest_prob_list[bot_response] = message_probability(message, list_of_words, single_response, required_words)
-
     # Greeting-------------------------------------------------------------------------------------------------------
     response('Hello!', ['helo', 'hai', 'hi','halo','hallo'], single_response=True)
     response('Pagi juga!', ['pagi', 'selamat pagi'], single_response=True)
@@ -52,7 +52,10 @@ def check_all_messages(message):
     response('Sore juga!', ['sore', 'selamat sore'], single_response=True)
     response('Malam juga!', ['malam', 'selamat malam'], single_response=True)
     response('Semoga membantu!', ['oke', 'terimakasih','oke','makasih'], single_response=True)
-
+    response('See you!', ['bye', 'goodbye'], single_response=True)
+    response('Semester','Prodi TI', ['how', 'are', 'you', 'doing'], required_words=['how'])
+    response('You\'re welcome!', ['thank', 'thanks'], single_response=True)
+    response('Thank you!', ['i', 'love', 'code', 'palace'], required_words=['code', 'palace'])
     
     #prodi
     response('Slamet Wiyono, S.Pd., M.Eng', ['kepala', 'program studi','siapa','kepala prodi','kaprodi','ka prodi'], single_response=True)
@@ -109,7 +112,7 @@ def check_all_messages(message):
     # Longer responses
     response(R_ABOUT, ['apa', 'itu', 'poli'], required_words=['apa', 'poli'])
     response(R_D4,['Semester','Prodi TI','berapa'], required_words=['berapa','semester'])
-
+    
     best_match = max(highest_prob_list, key=highest_prob_list.get)
     # print(highest_prob_list)
     # print(f'Best match = {best_match} | Score: {highest_prob_list[best_match]}')
@@ -123,9 +126,6 @@ def get_response(user_input):
     response = check_all_messages(split_message)
     return response
 
-@app.route('/')
-def index():
-    return render_template('index.html')
 @app.route('/bot')
 def bot():
     return render_template('bot.html')
