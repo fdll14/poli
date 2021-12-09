@@ -146,7 +146,7 @@ def dataset_delete(idx=None):
     data = dataset.destroy(idx)
     flash('Berhasil hapus data')
     return redirect(url_for('dataset', idx='all'))
-@app.route('/admin/answer-error/update', methods = ['POST'])
+@app.route('/admin/dataset/update', methods = ['POST'])
 def dataset_update():
     dataset = Dataset()
     inputan = request.form
