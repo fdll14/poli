@@ -1,137 +1,107 @@
-body
-{
-font-family: Garamond;
-background-color: white;
+body {
+  background: #007aff;
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  font-size: 14px;
+  color: rgb(105, 98, 98);
+  padding: 50px;
+  margin: 0;
+  line-height: 1.7em;
 }
-h1
-{
-color: white;
-margin-bottom: 0;
-margin-top: 0;
-text-align: center;
-font-size: 40px;
+#bot {
+  max-width: 450px;
+  height: 90vh;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 0;
+  background-color: rgba(255,255,255,.1);
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid rgba(255,255,255,.2);
+  border-right: 1px solid rgba(255,255,255,.2);
 }
-h3
-{
-color: black;
-font-size: 20px;
-margin-top: 3px;
-text-align: center;
+#chatbox{
+  height: 85vh;
+  overflow-x: none;
+  overflow-y: auto;
 }
-#chatbox
-{
-background-color: white;
-margin-left: auto;
-margin-right: auto;
-width: 1000px;
-overflow : scroll;
-margin-top: 60px;
+.botText {
+  color:  #041C32;
+  overflow-x: none;
+  overflow-y: auto;
+  display: block;
+  flex: 95;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 15px;
+}
+.botText span {
+padding: 5px 8px;
+display:block;
+border: 1px solid rgba(0,0,0,.2);
+background-color: rgba(255,255,255,.85);
+border-radius: 15px;
+border-bottom-left-radius: 0;
+padding: 10px;
 }
 #userInput {
-margin-left: auto;
-margin-right: auto;
-width: 40%;
-margin-top: 60px;
+  display: flex;
+  padding: 15px;
 }
 #textInput {
-width: 87%;
-border: none;
-border-bottom: 3px solid #009688;
-font-family: monospace;
-font-size: 17px;
+  padding-left: 11px;
+  padding-right: 9px;
+  font-size: 16px;
+  height: 40px;
+  display: block;
+  outline: none;
+  margin: 0 10px 0 0;
+  box-sizing: border-box;
+  border: 1px solid #aaa;
+  border-radius: 13px;
+  display: block;
 }
-#buttonInput {
-padding: 3px;
-font-family: monospace;
-font-size: 17px;
+.buttonInput {
+  display: block;
+  color: white;
+  background-color: #3b3;
+  flex: 1;
+  border: 1px solid rgba(0,0,0,.2);
+  height: 40px;
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 25px;
+  padding: 5px;
+  border-radius: 13px;
+  cursor: pointer; 
 }
 .userText {
 color: white;
 font-family: monospace;
-font-size: 17px;
+font-size: 16px;
 text-align: right;
 line-height: 30px;
 }
 .userText span {
-background-color: #009688;
+background-color: #3b3;
 padding: 10px;
-border-radius: 2px;
-}
-.botText {
-color: white;
-font-family: monospace;
-font-size: 17px;
-text-align: left;
-line-height: 30px;
-}
-.botText span {
-background-color: #EF5350;
-padding: 10px;
-border-radius: 2px;
-}
-#tidbit {
-position:absolute;
-bottom:0;
-right:0;
-width: 300px;
+border-radius: 15px;
+border-bottom-right-radius: 0;
+margin-right: 3.5%;
+
 }
 
 @media (max-width: 412px) {
-    #chatbox
-    {
-    background-color: white;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-    overflow : scroll;
-    margin-top: 60px;
-    }
-    #userInput {
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
-    margin-top: 60px;
-    }
-    #textInput {
-    width: 87%;
-    border: none;
-    border-bottom: 3px solid #009688;
-    font-family: monospace;
-    font-size: 12px;
-    }
-    #buttonInput {
-    padding: 3px;
-    font-family: monospace;
-    font-size: 12px;
-    }
-    .userText {
-    color: white;
-    font-family: monospace;
-    font-size: 12px;
-    text-align: right;
-    line-height: 30px;
-    }
-    .userText span {
-    background-color: #009688;
-    padding: 10px;
-    border-radius: 2px;
-    }
-    .botText {
-    color: white;
-    font-family: monospace;
-    font-size: 12px;
-    text-align: left;
-    line-height: 30px;
-    }
-    .botText span {
-    background-color: #EF5350;
-    padding: 10px;
-    border-radius: 2px;
-    }
-    #tidbit {
-    position:absolute;
-    bottom:0;
-    right:0;
-    width: 300px;
-    }
+  body {
+    background: #007aff;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    color: rgb(105, 98, 98);
+    padding: 20px;
+    margin-top: 50px;
+    line-height: 1.7em;
   }
+  #bot {
+    height: 80vh;
+
+  }
+}

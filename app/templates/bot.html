@@ -4,13 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Poli - Teknik Informatika</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="/static/frontend/img/favicon.png" rel="icon">
+    <link href="/static/upload/images/favicon.png" rel="icon">
 
     <!-- Google Fonts -->
     <link
@@ -18,67 +17,26 @@
         rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="/static/frontend/vendor/aos/aos.css" rel="stylesheet">
-    <link href="/static/frontend/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/frontend/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="/static/frontend/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="/static/frontend/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="/static/frontend/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="/static/frontend/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Template Main CSS File -->
-    <link href="/static/frontend/css/landingpage.css" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="/static/frontend/css/bot.css">
-    <!-- =======================================================
-  * Template Name: Bootslander - v4.7.0
-  * Template URL: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+
 </head>
 
 <body>
-    <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top d-flex align-items-center" style="background-color: #191C93;">
-        <div class="container d-flex align-items-center justify-content-between">
-
-            <div class="logo">
-                <h1><a href="/"><span>teknik Informatika</span></a></h1>
-                <!-- Uncomment below if you prefer to use an image logo -->
-                <!-- <a href="index.html"><img src="static/frontend//img/logo.png" alt="" class="img-fluid"></a>-->
-            </div>
-
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link scrollto" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="/#about">About</a></li>
-                    <li><a class="nav-link scrollto" href="/#kompetensi">Kompetensi</a></li>
-                    <li><a class="nav-link scrollto" href="/#gallery">Gallery</a></li>
-                    <li><a class="nav-link scrollto" href="/#team">Mahasiswa</a></li>
-                    <li><a class="nav-link scrollto" href="/#pricing">Pendaftaran</a></li>
-                    <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav><!-- .navbar -->
-
-        </div>
-    </header><!-- End Header -->
 
     <!-- ======= Bot Section ======= -->
-    <section id="bot">
-        <div class="bot">
-            <div>
+    <section id="bot"> 
                 <div id="chatbox">
                     <p class="botText"><span>Hai! Aku Poli.</span></p>
                 </div>
-                <div id="userInput">
-                    <!-- <input type="hidden" name="status" id="id_hidden" value="belum diperbaiki"> -->
-                    <input id="textInput" type="text" name="msg" placeholder="Message">
-                    <input id="buttonInput" type="submit" value="Send">
-                </div>
+                <form id="userInput">
+                    <input id="textInput" type="text" name="msg" placeholder="Message" required>
+                    <button class="buttonInput">Kirim</button>
+                </form> 
+
                 <script>
                     function bot_answer() {
                         var rawText = $("#textInput").val();
@@ -101,12 +59,8 @@
                         bot_answer();
                     })
                 </script>
-            </div>
-        </div>
-
-    </section><!-- End Hero -->
-    <h1>Asisten Virtual</h1>
-
+    </section>
+    ​
 </body>
 
 </html>

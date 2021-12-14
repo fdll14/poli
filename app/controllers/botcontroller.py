@@ -8,6 +8,7 @@ from app.models.answererror import Answererror
 R_ABOUT = "Poli adalah asisten virtual yang akan membantu kamu untuk menjawab semua hal yang berhubungan dengan Prodi Teknik Informatika"
 R_D4 = "Jenjang Sarjana Terapan memiliki lama waktu perkuliahan yang sama dengan jenjang sarjana yaitu empat tahun atau selama delapan semester"
 R_visi = "Menjadi program studi unggul dalam bidang teknik informatika yang mampu beradaptasi terhadap perkembangan teknologi informasi, berjiwa kewirausahaan, berbasis kearifan lokal dan berdaya saing global pada tahun 2035"
+
 def unknown():
     response = ["Maaf poli tidak mengerti tentang pertanyaan kamu.",
                 "Bisa tanyakan pertanyaan yang lain ? Poli tidak mengerti"][
@@ -125,7 +126,14 @@ def check_all_messages(message):
 def get_response(user_input):
     split_message = re.split(r'\s+|[,;?!.-]\s*', user_input.lower())
     response = check_all_messages(split_message)
-    return response
+    if response == "Maaf poli tidak mengerti tentang pertanyaan kamu." or response == "Bisa tanyakan pertanyaan yang lain ? Poli tidak mengerti":
+        answererror = Answererror()
+        inputan = user_input
+        status = "belum diperbaiki"
+        answererror.store(inputan, status)
+        return response
+    else:
+        return response
 
 @app.route('/bot')
 def bot():
@@ -135,18 +143,3 @@ def bot():
 def bot_answer():
     userText = request.args.get('msg')
     return get_response(userText)
-
-# def bot_answer():
-#     userText = request.args.get('msg')
-#     if get_response(userText) == "Maaf poli tidak mengerti tentang pertanyaan kamu.":
-#         answererror = Answererror()
-#         inputan = request.form
-#         answererror.store(inputan['msg'], inputan['status'])
-#         return get_response(userText)
-#     elif get_response(userText) == "Bisa tanyakan pertanyaan yang lain ? Poli tidak mengerti":
-#         answererror = Answererror()
-#         inputan = request.form
-#         answererror.store(inputan['msg'], inputan['status'])
-#         return get_response(userText)
-#     else:
-#         return get_response(userText)
