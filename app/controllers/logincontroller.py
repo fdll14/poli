@@ -31,12 +31,8 @@ def proses():
                 user = User()
                 session['user'] = account
                 session['login'] = True
-                if user.getOneId(str(account[0])) == 'satgas':
-                    flash("Selamat Datang")
-                    return redirect(url_for('satgas'))
-                else:
-                    flash("Selamat Datang")
-                    return redirect(url_for('admin'))
+                flash("Selamat Datang")
+                return redirect(url_for('admin'))
             else:
                 flash("Username dan Password salah")
                 return redirect(url_for('login'))

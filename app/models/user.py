@@ -10,7 +10,7 @@ class User:
 	def store(self, username, password, email, nama):
 		conn = mysql.connect()
 		cursor = conn.cursor()
-		cursor.execute("INSERT INTO user (username, password, email, nama, role) VALUES (%s, %s, %s, %s, %s)", (username, password, email, nama, "satgas"))
+		cursor.execute("INSERT INTO user (username, password, email, nama) VALUES (%s, %s, %s, %s, %s)", (username, password, email, nama))
 		conn.commit()
 		cursor.close()
 	def getOneId(self, id):
