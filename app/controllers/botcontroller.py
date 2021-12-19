@@ -47,6 +47,7 @@ def check_all_messages(message):
     def response(bot_response, list_of_words, single_response=False, required_words=[]):
         nonlocal highest_prob_list
         highest_prob_list[bot_response] = message_probability(message, list_of_words, single_response, required_words)
+
     # Greeting-------------------------------------------------------------------------------------------------------
     response('Hello!', ['helo', 'hai', 'hi','halo','hallo'], single_response=True)
     response('Pagi juga!', ['pagi', 'selamat pagi'], single_response=True)
@@ -68,53 +69,59 @@ def check_all_messages(message):
     response('Jl. Mataram No.9, Kel. pesurungan lor, Kel. Pesurungan Lor, Pesurungan Lor, Margadana, Kota Tegal, Jawa Tengah', ['alamat','lokasi','politeknik','harapan','bersama'], single_response=True)
     response('Absensi bisa di akses melalui www.syncnau.poltektegal.ac.id', ['bagaimana','absensi','mata kuliah','absen','mk'], single_response=True)
     response('untuk tutorialnya kamu bisa cek di website kita di www.oase.poltek.ac.id, tentunya kamu harus sudah punya akun yaa!', ['cara','tutorial','bayar','spp','tutor'], single_response=True)
+    response('Hai berikut kontak whatsapp admin yang bisa dihubungi (+62 858-6886-6067)', ['whatsapp','wa','kontak','admin'], single_response=True)
+    response('Hai berikut kontak whatsapp BAA yang bisa dihubungi (+62 857-4045-0071)', ['nomor','whatsapp','wa','kontak','BAA'], single_response=True)
+    response('Masalah bagian administratif akademik bisa dihubungi BAA (+62 857-4045-0071)', ['cara','mengatasi','masalah','akademik','suket','surat keterangan','mahasiswa aktif'], single_response=True)
+    response('Bagian Administrasi Akademik (BAA), adalah unsur pelaksana yang menyelenggarakan pelayanan teknis dan administratif dalam bidang akademik.', ['apa itu','BAA'], single_response=True)
 
     #semester 1
-    response('MUCHAMMAD SOFYAN FIRMANSYAH, S.S, M.A dan Nur Laeli, M.Pd', ['dosen','ingggris','english','semester','1','smt 1'], single_response=True)
-    response('RATRI WIKANINGTYAS, M.Pd.', ['dosen','bahasa indonesia','semester','1','smt 1'], single_response=True)
-    response('Dr. Tuharso, S. Ag, M.PI', ['dosen','agama','islam','semester','1','smt 1'], single_response=True)
-    response('Ginanjar Wiro Sasmito, M.Kom.', ['dosen','teknologi','informasi','semester','1','smt 1'], single_response=True)
-    response('Dairoh, M.Sc.', ['dosen','kalkulus','semester','1','smt 1'], single_response=True)
-    response('Riszki Wijayatun Pratiwi., M.CS.', ['dosen','logika','informatika','semester','1','smt 1'], single_response=True)
-    response('Romi Muharyono, S.Ag.', ['dosen','arsitektur','semester','1','smt 1'], single_response=True)
-    response('Ary Herijanto, S.Kom, MMSi', ['dosen','algoritma','struktur','data','semester','1','smt 1'], single_response=True)
-    response('Dega Surono Wibowo, S.T, M.Kom.', ['dosen','sistem','operasi','semester','1','smt 1'], single_response=True)
+    response('MUCHAMMAD SOFYAN FIRMANSYAH, S.S, M.A dan Nur Laeli, M.Pd', ['ingggris','english','1','smt 1'], single_response=True)
+    response('RATRI WIKANINGTYAS, M.Pd.', ['bahasa indonesia','1','smt 1'], single_response=True)
+    response('Dr. Tuharso, S. Ag, M.PI', ['agama','islam','1','smt 1'], single_response=True)
+    response('Ginanjar Wiro Sasmito, M.Kom.', ['teknologi','informasi','1','smt 1'], single_response=True)
+    response('Dairoh, M.Sc.', ['kalkulus','1','smt 1'], single_response=True)
+    response('Riszki Wijayatun Pratiwi., M.CS.', ['logika','informatika','1','smt 1'], single_response=True)
+    response('Romi Muharyono, S.Ag.', ['arsitektur','1','smt 1'], single_response=True)
+    response('Ary Herijanto, S.Kom, MMSi', ['algoritma','struktur','data','1','smt 1'], single_response=True)
+    response('Dega Surono Wibowo, S.T, M.Kom.', ['sistem','operasi','1','smt 1'], single_response=True)
 
     #semester 3
-    response('M. Nishom, M.Kom.', ['dosen','pemrograman','komputer','pemkom','3','smt 3'], single_response=True)
-    response('Dega Surono Wibowo, S.T., M.Kom.', ['dosen','jaringan','komputer','jarkom','semester','3','smt 3'], single_response=True)
-    response('Firdaus Nur Sugiharto, S.Tr. Kom.', ['dosen','pemrograman','web','pemweb','3','smt 3'], single_response=True)
-    response('Taufiq Abidin, M.Kom.', ['dosen','sistem','basis','data','semester','3','smt 3'], single_response=True)
-    response('Dairoh, M.Sc', ['dosen','matematika','numerik','matnum','3','smt 3'], single_response=True)
-    response('Slamet Wiyono, S.Pd., M.Eng', ['dosen','statistika','semester','3','smt 3'], single_response=True)
-    response('Dyah Apriliani, S.T., M.Kom.', ['dosen','enterprise','resource','planing','semester','3','smt 3'], single_response=True)
-    response('Prasetyo Budi Mulyo, S.Sos.', ['dosen','desain','grafis','multimedia','semester','3','smt 3'], single_response=True)
+    response('M. Nishom, M.Kom.', ['pemrograman','komputer','pemkom','3','smt 3'], single_response=True)
+    response('Dega Surono Wibowo, S.T., M.Kom.', ['jaringan','komputer','jarkom','3','smt 3'], single_response=True)
+    response('Firdaus Nur Sugiharto, S.Tr. Kom.', ['pemrograman','web','pemweb','3','smt 3'], single_response=True)
+    response('Taufiq Abidin, M.Kom.', ['sistem','basis','data','3','smt 3'], single_response=True)
+    response('Dairoh, M.Sc', ['matematika','numerik','matnum','3','smt 3'], single_response=True)
+    response('Slamet Wiyono, S.Pd., M.Eng', ['statistika','3','smt 3'], single_response=True)
+    response('Dyah Apriliani, S.T., M.Kom.', ['enterprise','resource','planing','3','smt 3'], single_response=True)
+    response('Prasetyo Budi Mulyo, S.Sos.', ['desain','grafis','multimedia','3','smt 3'], single_response=True)
 
     #semester 5
-    response('Rosid Mustofa, M.Kom', ['dosen','mobile','programming','semester','5','smt 5'], single_response=True)
-    response('Hendrawan Aprilia A, S.T.', ['dosen','komputasi','cloud','semester','5','smt 5'], single_response=True)
-    response('Sharfina Febbi Handayani, M.Kom.', ['dosen','framework','programming','semester','5','smt 5'], single_response=True)
-    response('Priyanto Tamami, S.Kom.', ['dosen','data','warehouse','semester','5','smt 5'], single_response=True)
-    response('Ardi Susanto, S.Kom., M.Cs.', ['dosen','pengujian','perangkat','lunak','ppl','pengujian','software','semester','5','smt 5'], single_response=True)
-    response('M. Fikri Hidayattullah, S.T., M.Kom.', ['dosen','machine','learning','semester','5','smt 5'], single_response=True)
-    response('Dwi Intan Af\'idah, M.Kom.', ['dosen','pemrograman','sistem','cerdas','pemsiscer','semester','5','smt 5'], single_response=True)
-    response('Hepatika Zidny Ilmadina, S.Pd., M.Kom.', ['dosen','pengolahan','citra','digital','pcd','semester','5','smt 5'], single_response=True)
-    response('Taufiq Abidin, M.Kom.', ['dosen','leadership','semester','5','smt 5'], single_response=True)
+    response('Rosid Mustofa, M.Kom', ['mobile','programming','5','smt 5'], single_response=True)
+    response('Hendrawan Aprilia A, S.T.', ['komputasi','cloud','5','smt 5'], single_response=True)
+    response('Sharfina Febbi Handayani, M.Kom.', ['framework','programming','5','smt 5'], single_response=True)
+    response('Priyanto Tamami, S.Kom.', ['data','warehouse','5','smt 5'], single_response=True)
+    response('Ardi Susanto, S.Kom., M.Cs.', ['pengujian','perangkat','lunak','ppl','pengujian','software','5','smt 5'], single_response=True)
+    response('M. Fikri Hidayattullah, S.T., M.Kom.', ['machine','learning','5','smt 5'], single_response=True)
+    response('Dwi Intan Af\'idah, M.Kom.', ['pemrograman','sistem','cerdas','pemsiscer','5','smt 5'], single_response=True)
+    response('Hepatika Zidny Ilmadina, S.Pd., M.Kom.', ['pengolahan','citra','digital','pcd','5','smt 5'], single_response=True)
+    response('Taufiq Abidin, M.Kom.', ['leadership','5','smt 5'], single_response=True)
     
     #semester 7
-    response('Riszki Wijayatun Pratiwi., M.CS.', ['dosen','sistem','informasi','manage','semester','7','smt 7'], single_response=True)
-    response('Riszki Wijayatun Pratiwi., M.CS', ['dosen','soft', 'skill','semester','7','smt 7'], single_response=True)
-    response('Ardi Susanto, S.Kom., M.Cs.', ['dosen','management','it','semester','7','smt 7'], single_response=True)
+    response('Riszki Wijayatun Pratiwi., M.CS.', ['sistem','informasi','manage','7','smt 7'], single_response=True)
+    response('Riszki Wijayatun Pratiwi., M.CS', ['soft', 'skill','7','smt 7'], single_response=True)
+    response('Ardi Susanto, S.Kom., M.Cs.', ['management','it','7','smt 7'], single_response=True)
 
     #tempat
     response('ruang lab hardware ada di gedung D lantai 4 politeknik harapan bersama', ['dimana','ruang','laboratorium','lab','hardware'], single_response=True)
     response('ruang lab RnD ada di gedung D lantai 2 politekik harapan bersama', ['dimana','ruang','laboratorium','lab','rnd','r n d'], single_response=True)
     response('ruang kaprodi ada di gedung D lantai 2 politeknik harapan bersama', ['dimana','ruang','kaprodi','kepala prodi'], single_response=True)
+    response('ruang BAA ada di gedung D lantai 1 politeknik harapan bersama tepatnya di samping perpustakaan', ['dimana','ruang','bagian','administrasi','akademik','BAA'], single_response=True)
+    response('ruang Perpustakaan ada di gedung D lantai 1 politeknik harapan bersama', ['dimana','ruang','perpustakaan','perpus'], single_response=True)
 
     # Longer responses
     response(R_ABOUT, ['apa', 'itu', 'poli'], required_words=['apa', 'poli'])
     response(R_D4,['Semester','Prodi TI','berapa'], required_words=['berapa','semester'])
-    
+
     best_match = max(highest_prob_list, key=highest_prob_list.get)
     # print(highest_prob_list)
     # print(f'Best match = {best_match} | Score: {highest_prob_list[best_match]}')
